@@ -28,18 +28,102 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
+    
     <div class="container">
+
+      <div id="today" class="row">
+        <div id="today-div" class="col-12">
+          <h2 id="today-h2" class="align-self-center"></h2>
+        </div>
+      </div>
+    
+    
       <!-- Timeblocks go here -->
     </div>
-
-    <section id="calender-section">
-      <div id="calender-div">
-
-      </div>
+    <section id="calendar-section" class="table-wrapper-scroll-y my-custom-scrollbar">
+      <table class="table table-bordered table-striped mb-0"></table>
+      <thead>
+        <div id="all-cal-hours">
+          <div id="hour0" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour1" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour2" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour3" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour4" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour5" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour6" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour7" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour8" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour9" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour10" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour11" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour12" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour13" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour14" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour15" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour16" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour17" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour18" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour19" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour20" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour21" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour22" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+          <div id="hour23" class="calhr row">
+            <p class="cal-hr-p col-1"></p><input class="col-10"><button class="cal-hr-btn col-1"></button>
+          </div>
+        </div>
+      </thead>
+    </table>
     </section>
 
+    <script src="https://cdn.jsdelivr.net/npm/luxon@1.26.0/build/global/luxon.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/1.26.0/luxon.min.js"></script>
+    <script src="./assets/javascript/script-cal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   </body>
 </html>
