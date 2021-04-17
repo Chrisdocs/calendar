@@ -1,3 +1,4 @@
+//initial luxon setup
 let DateTime = luxon.DateTime;
 
 var dtfull = DateTime.fromObject({zone: 'America/Los_Angeles', numberingSystem: 'beng'})
@@ -34,24 +35,24 @@ var dt = DateTime.now();
 // var daysInMonth = dt.daysInMonth;
 // console.log(daysInMonth)
 
-// Formatting to humans to read
 
-// var humantext = dt.toLocaleString();
-// console.log(humantext);
-// var humantext2 = dt.toLocaleString(DateTime.DATETIME_MED); //remove "TIME" to remove the time
-// console.log(humantext2);
+// Formatting for humans to read
+var humantext = dt.toLocaleString();
+console.log(humantext);
+var humantext2 = dt.toLocaleString(DateTime.DATETIME_MED); //remove "TIME" to remove the time
+console.log(humantext2);
 
-// var humantext3 = dt.toLocaleString(DateTime.DATE_MED);
-// console.log("Today is " + humantext3);
+var humantext3 = dt.toLocaleString(DateTime.DATE_MED);
+console.log("Today is " + humantext3);
 
-// var plusa = dt.plus({ hours: 3, minutes: 2 });
-// console.log(plusa);
-// var minus = dt.minus({ days: 7 });
-// console.log(minus);
-// var startof = dt.startOf('day');
-// console.log(startof);
-// var endof = dt.endOf('hour');
-// console.log(endof);
+var plusa = dt.plus({ hours: 3, minutes: 2 });
+console.log(plusa);
+var minus = dt.minus({ days: 7 });
+console.log(minus);
+var startof = dt.startOf('day');
+console.log(startof);
+var endof = dt.endOf('hour');
+console.log(endof);
 
 var hoursArray = [
     {hours: 0},
@@ -80,8 +81,10 @@ var hoursArray = [
     {hours: 23},
 ];
 
+//global variables
 var arrayIndex = 0;
 var allHoursPSelector = document.querySelectorAll("p.cal-hr-p");
+var today = document.getElementById("today-h2");
 
 //loop through the hours array
 for (var i = 0; i < hoursArray.length; i++) {
@@ -101,6 +104,5 @@ function input() {
 };
 input();
 };
-
-var today = document.getElementById("today-h2");
+ // insert todays date into a heading element
 today.textContent = "Hello, Today is " + humantext3;

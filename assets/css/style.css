@@ -86,7 +86,7 @@ textarea{
 
 .calhr {
   padding-left: 50px;
-  margin: 20px;
+  margin-top: 8px;
 }
 
 .cal-hr-p {
@@ -95,6 +95,8 @@ textarea{
   border: 1px solid lightsteelblue;
   border-radius: 15px;
   background-color: ghostwhite;
+  margin-bottom: auto;
+  font-weight: bold;
 }
 
 .cal-hr-btn {
