@@ -36,22 +36,22 @@ var dt = DateTime.now();
 
 // Formatting to humans to read
 
-var humantext = dt.toLocaleString();
-console.log(humantext);
-var humantext2 = dt.toLocaleString(DateTime.DATETIME_MED); //remove "TIME" to remove the time
-console.log(humantext2);
+// var humantext = dt.toLocaleString();
+// console.log(humantext);
+// var humantext2 = dt.toLocaleString(DateTime.DATETIME_MED); //remove "TIME" to remove the time
+// console.log(humantext2);
 
-var humantext3 = dt.toLocaleString(DateTime.DATE_MED);
-console.log("Today is " + humantext3);
+// var humantext3 = dt.toLocaleString(DateTime.DATE_MED);
+// console.log("Today is " + humantext3);
 
-var plusa = dt.plus({ hours: 3, minutes: 2 });
-console.log(plusa);
-var minus = dt.minus({ days: 7 });
-console.log(minus);
-var startof = dt.startOf('day');
-console.log(startof);
-var endof = dt.endOf('hour');
-console.log(endof);
+// var plusa = dt.plus({ hours: 3, minutes: 2 });
+// console.log(plusa);
+// var minus = dt.minus({ days: 7 });
+// console.log(minus);
+// var startof = dt.startOf('day');
+// console.log(startof);
+// var endof = dt.endOf('hour');
+// console.log(endof);
 
 var hoursArray = [
     {hours: 0},
@@ -81,26 +81,26 @@ var hoursArray = [
 ];
 
 var arrayIndex = 0;
-function arrayToNode() {
-for (var i = 0; i < hoursArray.length; i++) {
-var zeroHour = startof.plus(hoursArray[i]).toLocaleString(DateTime.TIME_SIMPLE);
-var p = document.getElementsByClassName("cal-hr-p");
+var allHoursPSelector = document.querySelectorAll("p.cal-hr-p");
 
-}
-// while (arrayIndex < hoursArray.length) {
-//     console.log(hoursArray[arrayIndex])
-//     arrayIndex++;
-// }
-var allHours = document.querySelectorAll("p.cal-hr-p");
-console.log(allHours)
-NodeList.forEach(arrayToNode())
-}
+//loop through the hours array
+for (var i = 0; i < hoursArray.length; i++) {
+    //take the first hour of the day and iterate through the hoursArray converting the time string into simple text
+    var zeroHour = startof.plus(hoursArray[i]).toLocaleString(DateTime.TIME_SIMPLE);
+    //create a variable which loops through the node (query slector all) for the p elements
+    var allHoursItems = allHoursPSelector.item([i]);
+
+    // function which inserts the converted times into the node elements
+function input() {
+    var className = document.getElementsByClassName("cal-hr-p")
+    // for each node elements, insert text content of the zero hour array (which adds one hour for each iteration)
+    hoursArray.forEach(element => element); {
+        for (var i = 0; i < className.length; i++)
+        allHoursItems.textContent = zeroHour;
+    };
+};
+input();
+};
 
 var today = document.getElementById("today-h2");
 today.textContent = "Hello, Today is " + humantext3;
-
-// var time0 = document.getElementById("p-hr-0");
-// time0.textContent = zeroHour;
-
-// var time1 = document.getElementById("p-hr-1");
-// time1.textContent = ""
