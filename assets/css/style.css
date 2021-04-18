@@ -105,5 +105,23 @@ textarea{
 }
 
 #calendar-section {
-  margin: 50px;
+  margin: 10px;
+}
+
+@media (max-width: 400px) {
+  .cal-hr-p {
+    padding: 10px;
+  }
+
+  .calhr {
+    margin-top: 100px;
+  }
+
+  .cal-hr-btn {
+    padding: 15px;
+  }
+
+  input {
+    padding: 30px;
+  }
 }

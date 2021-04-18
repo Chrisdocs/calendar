@@ -83,20 +83,23 @@ var hoursArray = [
 
 //global variables
 var arrayIndex = 0;
+//select all the <p> elements with the given class and create a node list
 var allHoursPSelector = document.querySelectorAll("p.cal-hr-p");
+//
 var today = document.getElementById("today-h2");
 
 //loop through the hours array
 for (var i = 0; i < hoursArray.length; i++) {
-    //take the first hour of the day and iterate through the hoursArray converting the time string into simple text
+    //take the first hour of the day and iterate through the hoursArray adding an hour per array object and converting the time string into simple text
     var zeroHour = startof.plus(hoursArray[i]).toLocaleString(DateTime.TIME_SIMPLE);
     //create a variable which loops through the node (query slector all) for the p elements
     var allHoursItems = allHoursPSelector.item([i]);
 
     // function which inserts the converted times into the node elements
 function input() {
+    // create a variable which selects the <p> elements, but does not group them into a nodelist
     var className = document.getElementsByClassName("cal-hr-p")
-    // for each node elements, insert text content of the zero hour array (which adds one hour for each iteration)
+    // for each node element, insert text content of the zerohour (which adds one hour for each iteration of the hours array)
     hoursArray.forEach(element => element); {
         for (var i = 0; i < className.length; i++)
         allHoursItems.textContent = zeroHour;
