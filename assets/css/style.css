@@ -32,8 +32,7 @@ textarea{
 
 .row {
   white-space: pre-wrap;
-  height: 80px;
-  border-top: 1px solid white;;
+  border-top: 1px solid white;
 }
 
 .hour {
@@ -85,15 +84,14 @@ textarea{
 }
 
 .calhr {
-  padding-left: 50px;
-  margin-top: 8px;
+  padding-left: 100px;
+  margin-top: 15px;
 }
 
 .cal-hr-p {
   text-align: center;
   padding: 30px;
   border: 1px solid lightsteelblue;
-  border-radius: 15px;
   background-color: ghostwhite;
   margin-bottom: auto;
   font-weight: bold;
@@ -101,24 +99,37 @@ textarea{
 
 .cal-hr-btn {
   background-color: lightsteelblue;
-  border-radius: 15px;
 }
 
 #calendar-section {
   margin: 10px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 9999px) {
+  .cal-hr-p {
+    border-top-left-radius: 15px;
+  }
+
+  .cal-hr-btn {
+    border-bottom-right-radius: 15px;
+  }
+}
+
+@media (max-width: 766px) {
   .cal-hr-p {
     padding: 10px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
   }
 
   .calhr {
-    margin-top: 100px;
+    padding-left: 30px;
   }
 
   .cal-hr-btn {
     padding: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
   }
 
   input {
