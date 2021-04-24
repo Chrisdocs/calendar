@@ -18,6 +18,7 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Work Day Scheduler</title>
   </head>
@@ -27,14 +28,24 @@
       <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
+      <h5 class="modal-title" id="task-form-modal">Add New Task</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
     </header>
     
     <div class="container">
 
       <div id="today" class="row">
+
         <div id="today-div" class="col-12">
           <h2 id="today-h2" class="align-self-center"></h2>
         </div>
+
+        <div id="today-div" class="col-12">
+          <h2 id="today-h2-time" class="align-self-center"></h2>
+        </div>
+
       </div>
     
     
@@ -44,83 +55,251 @@
       <table class="table table-bordered table-striped mb-0"></table>
       <thead>
         <div id="all-cal-hours">
-          <div class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p><input class="col-sm-12 col-md-7 col-lg-9 col-xl-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
+
+          <div  class="calhr row">
+            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn0" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div id="hour1" class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn1" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div id="hour2" class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn2" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn3" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div id="hour4" class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn4" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div id="hour5" class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn5" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div id="hour6" class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn6" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div id="hour7" class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn7" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div id="hour8" class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn8" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div id="hour9" class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn9" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div id="hour10" class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+          
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn10" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div id="hour11" class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn11" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div id="hour12" class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn12" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div id="hour13" class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn13" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div id="hour14" class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn14" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div id="hour15" class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn15" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div id="hour16" class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn16" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div id="hour17" class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn7" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div id="hour18" class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn18" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div id="hour19" class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn19" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div id="hour20" class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn20" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div id="hour21" class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn21" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div id="hour22" class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn22" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
-          <div id="hour23" class="calhr row">
-            <p class="cal-hr-p col-sm-12 col-md-2 col-lg-1"></p><input class="col-sm-12 col-md-7 col-lg-9"><button class="cal-hr-btn col-sm-12 col-md-2 col-lg-1"></button>
+
+          <div  class="calhr row">
+            <p  class="cal-hr-p col-sm-12 col-md-2 col-lg-1 col-xl-1"></p>
+            <div class="input-group col-sm-12 col-md-7 col-lg-9 col-xl-9">
+            <div class="input-group-prepend">
+            </div>
+              <textarea  class="form-control time-color" aria-label="With textarea"></textarea>
+            </div>
+            <button id="btn23" class="cal-hr-btn col-sm-12 col-md-2 col-lg-1 col-xl-1"></button>
           </div>
+          
         </div>
       </thead>
     </table>
     </section>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/luxon@1.26.0/build/global/luxon.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./assets/javascript/script-cal.js"></script>

@@ -1,4 +1,4 @@
-body {
+	body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
@@ -73,6 +73,10 @@ textarea{
   text-align: center;
 }
 
+#today-h2-time {
+  text-align: center;
+}
+
 .my-custom-scrollbar {
   position: relative;
   height: 600px;
@@ -104,6 +108,20 @@ textarea{
 #calendar-section {
   margin: 10px;
 }
+
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: greenyellow;
+}
+
+.grey {
+  background-color: grey;
+}
+
 
 @media (max-width: 9999px) {
   .cal-hr-p {
