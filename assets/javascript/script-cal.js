@@ -1,6 +1,9 @@
 //initial luxon setup
 let DateTime = luxon.DateTime;
 
+var dateMil = DateTime.now('HH:ss').hour;
+console.log(dateMil);
+
 var dtfull = DateTime.fromObject({zone: 'America/Los_Angeles', numberingSystem: 'beng'})
 
 DateTime.fromISO("2017-05-15")          //=> May 15, 2017 at midnight
@@ -118,55 +121,30 @@ function input() {
 input();
 };
 
-var hourByString = {
-    '12:00 AM': 0,
-    '1:00 AM' : 1,
-    '2:00 AM' : 2,
-    '3:00 AM' : 3,
-    '4:00 AM' : 4,
-    '5:00 AM' : 5,
-    '6:00 AM' : 6,
-    '7:00 AM' : 7,
-    '8:00 AM' : 8,
-    '9:00 AM' : 9,
-    '10:00 AM' : 10,
-    '11:00 AM' : 11,
-    '12:00 PM' : 12,
-    '1:00 PM' : 13,
-    '2:00 PM' : 14,
-    '3:00 PM' : 15,
-    '4:00 PM' : 16,
-    '5:00 PM' : 17,
-    '6:00 PM' : 18,
-    '7:00 PM' : 19,
-    '8:00 PM' : 20,
-    '9:00 PM' : 21,
-    '10:00 PM' : 22,
-    '11:00 PM' : 23,
-}
-// highlight a section in either red green or grey depending on how far off that task is to the current time.
-var textBox = document.getElementsByClassName("form-control");
+var textBox = document.getElementsByClassName("time-color");
 
 var timeBox = document.getElementsByClassName("cal-hr-p");
 var timeBoxArray = Array.from(timeBox);
-
+var textAreaArray = Array.from(textBox);
 var highlightTime = function() {
+    
+    for (var i = 0; i < timeBox.length; i++) {
 
-    var hourToTest = hourByString[timeBoxArray[0].textContent];
-    console.log('hoursToTest: ', hourToTest);
+        var hourToTest = timeBoxArray[i];
+        var hourId = timeBox[i].id
 
-    for (var i = 0; i < hourByString.length; i++) {
-
-        if(hourToTest[i] < hour){
-            console.log('It is less than now')
+        
+        if(dateMil > parseInt(hourId)) {
+            textAreaArray[i].classList.add("past");
+            console.log('It is less than now');
+        } else if (dateMil < parseInt(hourId)) {
+            textAreaArray[i].classList.add("future");
+            console.log('It is more than now');
+        } else if (dateMil === parseInt(hourId)) {
+            textAreaArray[i].classList.add("present");
+            console.log('It is now');
         }
     }
-    //
-    // if past
-
-    // if present
-
-    // if future
 }
 highlightTime();
 
@@ -187,50 +165,20 @@ var saveBtnClick = document.querySelectorAll(".cal-hr-btn");
 saveBtnClick.forEach((item, index) => {item.addEventListener("click", event => {
 
     var textBox = document.getElementsByClassName("form-control");
-    console.log(textBox);
-
     //set to variable
-    console.log(index);
     var textBoxDescription = textBox[index].value; //description
-    console.log(textBoxDescription);
-    console.log(textBox[0]);
     var taskTime = timeBox[index].textContent; //time
-    console.log(taskTime);
     //save to local storage set time time, description
     localStorage.setItem(taskTime, textBoxDescription); //save to local storage
-
-
-
 });
 });
 
 // get the text content of the sibling <textarea> element
-for (var i = 0; i < timeBox.length; i++)
+for (var i = 0; i < timeBox.length; i++) {
     if (hour) {
 var getTime = timeBox[i].textContent;
-console.log(getTime);
 var getTaskTime = localStorage.getItem(getTime);
-console.log(getTaskTime);
 var reInsertText = document.querySelectorAll(".form-control");
 reInsertText[i].textContent = getTaskTime;
     }
-//loop
-
-// alternative btn system
-
-// $(".cal-hr-btn").on("click", function(){
-//     console.log($(this).siblings(".cal-hr-p").text());
-//     console.log($(this).siblings(".cal-hr-p").val());
-//     var descr = $(this).siblings(".description").val();
-//     var hour = $(this).siblings(".cal-hr-p").text();
-//     console.log(descr);
-//     console.log(hour);
-
-//     localStorage.setItem("hour", "descr");
-// })
-
-// $(".time-block")
-//run an each for .time-block
-// store the value of .hour div in a variable
-//check the local storage with the value of hour to see if you have a decsription saved
-//cif you have a description saved, update the innertext of .descrition with the returned value
+}
