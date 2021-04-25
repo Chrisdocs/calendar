@@ -20,7 +20,6 @@ var dt = DateTime.now();
 // var day = dt.day;
 // console.log("The day is " + day);
 var hour = dt.hour;
-console.log(hour);
 // console.log("The hour is " + hour);
 // var minute = dt.minute;
 // console.log("The minut is " + minute);
@@ -145,16 +144,15 @@ var hourByString = {
     '10:00 PM' : 22,
     '11:00 PM' : 23,
 }
-// highlight a section in either red green or yellow depending on how far off that task is to the current time.
+// highlight a section in either red green or grey depending on how far off that task is to the current time.
 var textBox = document.getElementsByClassName("form-control");
 
 var timeBox = document.getElementsByClassName("cal-hr-p");
-console.log(timeBox.textContent);
+var timeBoxArray = Array.from(timeBox);
 
 var highlightTime = function() {
 
-
-    var hourToTest = hourByString[timeBox[0].textContent];
+    var hourToTest = hourByString[timeBoxArray[0].textContent];
     console.log('hoursToTest: ', hourToTest);
 
     for (var i = 0; i < hourByString.length; i++) {
@@ -174,7 +172,7 @@ highlightTime();
 
 
 var saveIcon = function() {
-    //insert dave file icon html into each button element
+    //insert save file icon html into each button element
 	var saveBtn = document.querySelectorAll(".cal-hr-btn");
 
     for (var i = 0; i < saveBtn.length; i++) {
@@ -203,16 +201,20 @@ saveBtnClick.forEach((item, index) => {item.addEventListener("click", event => {
 
 
 
-    // get the text content of the sibling <textarea> element
-    textAreaArr = document.getElementsByClassName(".form-control");
-    console.log(textAreaArr);
-    //loop
-    
-
-    // save text content to local storage and re load it on page refresh
-    });
+});
 });
 
+// get the text content of the sibling <textarea> element
+for (var i = 0; i < timeBox.length; i++)
+    if (hour) {
+var getTime = timeBox[i].textContent;
+console.log(getTime);
+var getTaskTime = localStorage.getItem(getTime);
+console.log(getTaskTime);
+var reInsertText = document.querySelectorAll(".form-control");
+reInsertText[i].textContent = getTaskTime;
+    }
+//loop
 
 // alternative btn system
 
